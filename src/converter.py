@@ -11,10 +11,10 @@ def converter(images):
 
     root_path = Path(__file__).resolve().parent.parent
 
-    caminho_pdf = root_path / "/output.pdf"
+    pdf_path = str(root_path / "output.pdf")
 
     a4_width, a4_height = A4
-    c = canvas.Canvas(caminho_pdf, pagesize=A4)
+    c = canvas.Canvas(pdf_path, pagesize=A4)
 
     for image_path in images:
         with Image.open(image_path) as image:

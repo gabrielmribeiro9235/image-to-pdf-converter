@@ -1,3 +1,7 @@
 resources/*
 
 !resources/.gitkeep
+
+*.pdf
+
+__pycache__

@@ -5,10 +5,13 @@ def get_path_to_files():
 
     resources_path = root_path / "resources"
 
-    files = []
+    extensions = {".png", ".jpg", ".jpeg", ".webp", ".bmp", ".tiff"}
 
-    for file in resources_path.iterdir():
-        if file.is_file() and file.name != ".gitkeep":
-            files.append(f"{resources_path}\\{file.name}")
-
-    return files
+    return sorted(
+        (
+            path
+            for path in resources_path.iterdir()
+            if path.is_file() and path.suffix.lower() in extensions
+        ),
+        key=lambda path : path.name.lower()
+    )
